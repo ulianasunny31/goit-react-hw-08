@@ -1,0 +1,42 @@
+.contactDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 15px;
+  border: 1px solid #313131;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.contactDiv > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactDiv h3 {
+  margin: 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.contactLastHeading {
+  margin-bottom: 10px;
+}
+
+.contactDiv button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 40px;
+  border: 1px solid darkgray;
+}
+
+.contactDiv button:hover {
+  background-color: black;
+  color: white;
+  border: none;
+}

@@ -1,0 +1,16 @@
+.searchBoxDiv {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.searchBoxDiv input {
+  width: 200px;
+  height: 30px;
+}
+
+.searchBoxDiv label {
+  font-size: 18px;
+}
