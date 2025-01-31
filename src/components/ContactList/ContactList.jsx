@@ -8,6 +8,7 @@ import Loader from '../Loader/Loader';
 
 const ContactList = () => {
   const visibleContacts = useSelector(selectFilteredContacts);
+  // const visibleContacts = [{ name: 'Jack', number: '123456', id: '120201' }];
   const isLoading = useSelector(selectIsLoading);
   const isError = useSelector(selectIsError);
 
@@ -17,10 +18,12 @@ const ContactList = () => {
         <Loader />
       ) : isError ? (
         <h2>Oops, something went wrong, please try again! 🐱‍💻</h2>
-      ) : (
+      ) : visibleContacts?.length ? (
         visibleContacts.map((contact) => {
           return <Contact key={contact.id} contact={contact} />;
         })
+      ) : (
+        'No contacts yet'
       )}
     </div>
   );

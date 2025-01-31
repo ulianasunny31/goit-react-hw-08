@@ -1,29 +1,36 @@
-import ContactList from './components/ContactList/ContactList';
-import ContactForm from './components/ContactForm/ContactForm';
-import SearchBox from './components/SearchBox/SearchBox';
 import './App.css';
-import { useEffect } from 'react';
-import { fetchContacts } from './redux/contactsOps';
-import { useDispatch } from 'react-redux';
+import { lazy } from 'react';
+// import { fetchContacts } from './redux/contacts/operations';
+// import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+
+import Layout from './components/Layout';
+
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const RegisterPage = lazy(() =>
+  import('./pages/RegistrationPage/RegistrationPage')
+);
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const ContactsPage = lazy(() => import('./pages/ContactsPage/ContactsPage'));
 
 function App() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   //initializing the contact list
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
 
   return (
     <>
-      <h1>Phonebook</h1>
-      <div className="app-style-div">
-        <div className="app-style-div-two">
-          <ContactForm />
-          <SearchBox />
-        </div>
-        <ContactList />
-      </div>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+        </Routes>
+      </Layout>
     </>
   );
 }

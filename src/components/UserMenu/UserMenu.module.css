@@ -1,0 +1,24 @@
+.usermenu {
+  display: flex;
+  gap: 70px;
+}
+
+.usermenu p {
+  font-size: 18px;
+  font-style: italic;
+  color: #ebe6c5;
+}
+
+.usermenu button {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.usermenu button:hover {
+  transform: scale(1.1);
+}
