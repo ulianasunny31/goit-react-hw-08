@@ -18,17 +18,20 @@ const Contact = ({ contact }) => {
 
   return (
     <div className={css.contactDiv}>
-      <div>
+      <div className={css.nameDiv}>
         <h3>
-          <IoPerson />
+          <IoPerson className={css.icon} />
           {contact.name}
         </h3>
         <h3 className={css.contactLastHeading}>
-          <FaPhone /> {contact.number}
+          <FaPhone className={css.icon} /> {contact.number}
         </h3>
       </div>
 
-      <button onClick={() => handleDelete(contact.id)}>Delete</button>
+      <div className={css.buttons}>
+        <button onClick={() => handleDelete(contact.id)}>Change</button>{' '}
+        <button onClick={() => handleDelete(contact.id)}>Delete</button>
+      </div>
     </div>
   );
 };

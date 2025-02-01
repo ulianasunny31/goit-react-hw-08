@@ -4,13 +4,16 @@
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  margin-bottom: 15px;
-  border: 1px solid #313131;
+  margin-bottom: 20px;
+  border: 1px solid #c0c0f7;
+
   border-radius: 8px;
-  padding: 5px;
+  padding: 5px 10px 8px 10px;
+  width: 350px;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
 }
 
-.contactDiv > div {
+.contactDiv .nameDiv {
   display: flex;
   flex-direction: column;
 }
@@ -18,7 +21,7 @@
 .contactDiv h3 {
   margin: 0;
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -31,12 +34,23 @@
   justify-content: center;
   align-items: center;
   width: 80px;
-  height: 40px;
+  height: 30px;
   border: 1px solid darkgray;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
 .contactDiv button:hover {
   background-color: black;
   color: white;
   border: none;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  fill: rgb(6, 6, 60);
 }

@@ -53,7 +53,6 @@ export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const savedToken = thunkAPI.getState().auth.token;
-    console.log(savedToken);
 
     if (!savedToken) {
       return thunkAPI.rejectWithValue('No saved authentication token found');
@@ -62,8 +61,6 @@ export const refreshUser = createAsyncThunk(
     try {
       setAuthHeader(savedToken);
       const { data } = await api.get('users/current');
-      console.log(data);
-
       return data;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);
