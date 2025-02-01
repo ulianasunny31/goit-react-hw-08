@@ -3,12 +3,21 @@ import SearchBox from '../../components/SearchBox/SearchBox';
 import ContactForm from '../../components/ContactForm/ContactForm';
 
 const ContactsPage = () => {
-  // return <ContactList />;
-
   return (
     <div style={{ color: 'black' }}>
-      <ContactForm />
-      <SearchBox />
+      <div
+        style={{
+          display: 'flex',
+          gap: '100px',
+          marginBottom: '40px',
+          alignItems: 'flex-end',
+          paddingBottom: '20px',
+        }}
+      >
+        <ContactForm />
+        <SearchBox />
+      </div>
+      <ContactList />
     </div>
   );
 };

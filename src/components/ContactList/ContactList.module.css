@@ -5,3 +5,8 @@
   flex-wrap: wrap;
   column-gap: 20px;
 }
+
+.contactList h2 {
+  font-size: 20px;
+  color: #717171;
+}

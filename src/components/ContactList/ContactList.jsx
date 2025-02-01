@@ -23,7 +23,7 @@ const ContactList = () => {
           return <Contact key={contact.id} contact={contact} />;
         })
       ) : (
-        'No contacts yet'
+        <h2>You don&apos;t have any contacts yet. Try adding one!</h2>
       )}
     </div>
   );
