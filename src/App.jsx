@@ -1,13 +1,13 @@
 import './App.css';
-import { lazy } from 'react';
-// import { fetchContacts } from './redux/contacts/operations';
-// import { useDispatch } from 'react-redux';
+import { lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import PrivateRoute from './components/PrivateRoute';
 import RestrictedRoute from './components/RestrictedRoute';
+import { refreshUser } from './redux/auth/operations';
 
-//imports
+//pages imports
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const RegisterPage = lazy(() =>
   import('./pages/RegistrationPage/RegistrationPage')
@@ -17,12 +17,11 @@ const ContactsPage = lazy(() => import('./pages/ContactsPage/ContactsPage'));
 
 //app component
 function App() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //initializing the contact list
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return (
     <>

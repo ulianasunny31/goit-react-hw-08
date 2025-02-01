@@ -6,11 +6,17 @@ import css from './UserMenu.module.css';
 const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  console.log(user.name);
+
+  function handleLogOut() {
+    console.log('clicked');
+    dispatch(logoutUser());
+  }
 
   return (
     <div className={css.usermenu}>
       <p>Welcome, {user.name}!</p>
-      <button onClick={() => dispatch(logoutUser())}>Logout</button>
+      <button onClick={handleLogOut}>Logout</button>
     </div>
   );
 };
