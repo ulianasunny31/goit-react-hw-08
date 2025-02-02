@@ -9,7 +9,13 @@ const Contact = ({ contact, openModal }) => {
   const dispatch = useDispatch();
 
   function handleDelete(contactId) {
-    dispatch(deleteContact(contactId));
+    let confirmed = confirm(
+      'Are you sure you want to delet the contact permanently?'
+    );
+
+    if (confirmed) {
+      dispatch(deleteContact(contactId));
+    }
   }
 
   function openChangeModal(contactId) {
