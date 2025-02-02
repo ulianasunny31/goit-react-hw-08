@@ -12,7 +12,6 @@ const LoginForm = () => {
   const passwordId = useId();
 
   function handleSubmit(values, action) {
-    console.log(values);
     dispatch(loginUser(values))
       .unwrap()
       .then(() => navigate('/'));

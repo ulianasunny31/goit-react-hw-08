@@ -8,8 +8,6 @@ import { deleteContact } from '../../redux/contacts/operations';
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
 
-  console.log(contact);
-
   function handleDelete(contactId) {
     console.log(contactId);
 
