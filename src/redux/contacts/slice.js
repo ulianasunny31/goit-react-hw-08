@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchContacts, deleteContact, addContact } from './operations';
+import {
+  fetchContacts,
+  deleteContact,
+  addContact,
+  changeContact,
+} from './operations';
 
 const initialState = {
   items: [],
@@ -46,6 +51,17 @@ const slice = createSlice({
         state.loading = false;
         state.error = null;
         state.items.push(action.payload);
+      })
+      .addCase(changeContact.fulfilled, (state, action) => {
+        const contact = state.items.find(
+          (contact) => contact.id === action.payload.id
+        );
+
+        if (!contact) {
+          console.error('Contact not found');
+        }
+        contact.name = action.payload.name;
+        contact.number = action.payload.number;
       });
   },
 });

@@ -38,14 +38,20 @@ export const deleteContact = createAsyncThunk(
   }
 );
 
-// export const changeContact = createAsyncThunk(
-//   'contacts/deleteContact',
-//   async (contactChange, thunkAPI) => {
-//     try {
-//       await api.patch(`contacts/${contactChange}`);
-//       return contactChange;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const changeContact = createAsyncThunk(
+  'contacts/changeContact',
+  async (editedContact, thunkAPI) => {
+    console.log(editedContact);
+
+    try {
+      await api.patch(`contacts/${editedContact.id}`, {
+        name: editedContact.name,
+        number: editedContact.number,
+      });
+      return editedContact;
+    } catch (error) {
+      console.error('Error details:', error.response.data);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

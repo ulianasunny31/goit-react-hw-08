@@ -5,13 +5,15 @@ import css from './Contact.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
 
-const Contact = ({ contact }) => {
+const Contact = ({ contact, openModal }) => {
   const dispatch = useDispatch();
 
   function handleDelete(contactId) {
-    console.log(contactId);
-
     dispatch(deleteContact(contactId));
+  }
+
+  function openChangeModal(contactId) {
+    openModal(contactId);
   }
 
   return (
@@ -27,7 +29,7 @@ const Contact = ({ contact }) => {
       </div>
 
       <div className={css.buttons}>
-        <button onClick={() => handleDelete(contact.id)}>Change</button>{' '}
+        <button onClick={() => openChangeModal(contact)}>Change</button>{' '}
         <button onClick={() => handleDelete(contact.id)}>Delete</button>
       </div>
     </div>

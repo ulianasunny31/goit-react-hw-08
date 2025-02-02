@@ -1,0 +1,73 @@
+.modal {
+  position: relative;
+  background: none;
+  border: none;
+  min-height: 250px;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+  border-radius: 6px;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.modal h3 {
+  text-align: center;
+}
+
+.form button {
+  background-color: #011f5e;
+  color: white;
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.form button:hover {
+  background-color: #1d4ab4;
+}
+
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.inputDiv input {
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 160px;
+  height: 30px;
+}
+
+.inputDiv span {
+  color: rgb(255, 109, 72);
+  font-size: 13px;
+  margin-bottom: 8px;
+}

@@ -1,16 +1,29 @@
 import ContactList from '../../components/ContactList/ContactList';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import ContactForm from '../../components/ContactForm/ContactForm';
-import { useEffect } from 'react';
+import ModalPrompt from '../../components/Modal/ModalPrompt';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from '../../redux/contacts/operations';
 
 const ContactsPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
   const dispatch = useDispatch();
   //getting saved contacts
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+
+  function openModal(contact) {
+    setSelectedItem(contact);
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setSelectedItem(null);
+    setIsModalOpen(false);
+  }
 
   return (
     <div style={{ color: 'black' }}>
@@ -26,7 +39,14 @@ const ContactsPage = () => {
         <ContactForm />
         <SearchBox />
       </div>
-      <ContactList />
+      <ContactList onChangeClick={openModal} />
+      {isModalOpen && (
+        <ModalPrompt
+          isModalOpen={isModalOpen}
+          onModalClose={closeModal}
+          contact={selectedItem}
+        />
+      )}
     </div>
   );
 };
