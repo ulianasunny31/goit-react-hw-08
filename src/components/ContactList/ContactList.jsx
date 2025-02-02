@@ -8,7 +8,6 @@ import Loader from '../Loader/Loader';
 
 const ContactList = () => {
   const visibleContacts = useSelector(selectFilteredContacts);
-  // const visibleContacts = [{ name: 'Jack', number: '123456', id: '120201' }];
   const isLoading = useSelector(selectIsLoading);
   const isError = useSelector(selectIsError);
 
