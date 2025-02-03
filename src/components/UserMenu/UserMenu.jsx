@@ -8,7 +8,6 @@ const UserMenu = () => {
   const user = useSelector(selectUser);
 
   function handleLogOut() {
-    console.log('clicked');
     dispatch(logoutUser());
   }
 

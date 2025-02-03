@@ -9,7 +9,7 @@ import { refreshUser } from './redux/auth/operations';
 
 //pages imports
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
-const RegisterPage = lazy(() =>
+const RegistrationPage = lazy(() =>
   import('./pages/RegistrationPage/RegistrationPage')
 );
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
@@ -33,7 +33,7 @@ function App() {
             element={
               <RestrictedRoute
                 redirectTo="/contacts"
-                component={<RegisterPage />}
+                element={<RegistrationPage />}
               />
             }
           />
