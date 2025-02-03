@@ -1,4 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import { useId } from 'react';
 import css from './RegistrationForm.module.css';
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,6 +13,12 @@ const RegistrationForm = () => {
   const nameId = useId();
   const emailId = useId();
   const passwordId = useId();
+
+  const validation = Yup.object().shape({
+    name: Yup.string().max(15, 'Too much!').required('This is required.'),
+    email: Yup.string().email().required('This is required.'),
+    password: Yup.string().min(7, 'Too short!').required('This is required.'),
+  });
 
   function handleSubmit(values, action) {
     console.log(values);
@@ -31,6 +38,7 @@ const RegistrationForm = () => {
           password: '',
         }}
         onSubmit={handleSubmit}
+        validationSchema={validation}
       >
         <Form className={css.registerForm}>
           <div>

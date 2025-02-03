@@ -41,3 +41,10 @@
 .registerForm p {
   color: #021130;
 }
+
+.registerForm span {
+  color: rgb(255, 109, 72);
+  font-size: 13px;
+  margin-bottom: 8px;
+  text-align: center;
+}
