@@ -6,6 +6,7 @@ import {
   addContact,
   changeContact,
 } from './operations';
+import { logoutUser } from '../auth/operations';
 
 const initialState = {
   items: [],
@@ -62,6 +63,9 @@ const slice = createSlice({
         }
         contact.name = action.payload.name;
         contact.number = action.payload.number;
+      })
+      .addCase(logoutUser.fulfilled, (state) => {
+        state.items = [];
       });
   },
 });
